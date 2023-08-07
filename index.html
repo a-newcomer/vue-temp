@@ -12,9 +12,11 @@
                 <fieldset :class="tempColor(tempF)">
                     <label for="farenheit"> 
                         <input 
+                            name="farenheit"
                             id="farenheit" 
                             type="text" 
                             size="4" 
+                            pattern="[0-9]+"
                             v-model.number="tempF" 
                             @keyup="calcCelcius"
                             > &deg; Farenheit
@@ -23,9 +25,11 @@
                     <br>
                     <label for="celcius"> 
                         <input 
+                            name="celcius"
                             id="celcius" 
                             type="text" 
                             size="4"
+                            pattern="_[^[0-9]*$]"
                             v-model.number="tempC" 
                             @keyup="calcFarenheit()"
                             > &deg; Centigrade
@@ -46,10 +50,10 @@
                 },
                 methods: {
                     calcCelcius() {
-                        this.tempC = ((this.tempF - 32) * 5/9).toFixed(0) + '\u00B0';
+                        this.tempC = ((this.tempF - 32) * 5/9).toFixed(0);
                     },
                     calcFarenheit() {
-                        this.tempF = ((this.tempC * 9/5) + 32).toFixed(0) + '\u00B0';
+                        this.tempF = ((this.tempC * 9/5) + 32).toFixed(0);
                         return this.tempF
                     },
                     tempColor(tempF) {
