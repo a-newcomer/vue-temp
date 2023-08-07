@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue Temp Converter</title>
+        <link rel='stylesheet' href='style.css'>
+        <script src='https://unpkg.com/vue@next'></script><script  src="./script.js"></script>
+    </head>
+    <body class="container mt-5">
+        <div id="app" >
+            <article>
+                <fieldset :class="tempColor(tempF)">
+                    <label for="farenheit"> 
+                        <input 
+                            id="farenheit" 
+                            type="text" 
+                            size="4" 
+                            v-model.number="tempF" 
+                            @keyup="calcCelcius"
+                            > &deg; Farenheit
+                    </label>
+                    <br>
+                    <br>
+                    <label for="celcius"> 
+                        <input 
+                            id="celcius" 
+                            type="text" 
+                            size="4"
+                            v-model.number="tempC" 
+                            @keyup="calcFarenheit()"
+                            > &deg; Centigrade
+                    </label>
+                </fieldset>
+                <h3 class="alert" v-if="isNaN(parseInt(tempC)) || isNaN(parseInt(tempF)) ">{{myAlert}}</h3>
+            </article>
+        </div>
+       
+        <script>
+            const App = Vue.createApp({
+                data() {
+                    return {
+                        tempC: 20,
+                        tempF: 68,
+                        myAlert: "Use a Number!",
+                    }
+                },
+                methods: {
+                    calcCelcius() {
+                        this.tempC = ((this.tempF - 32) * 5/9).toFixed(0) + '\u00B0';
+                    },
+                    calcFarenheit() {
+                        this.tempF = ((this.tempC * 9/5) + 32).toFixed(0) + '\u00B0';
+                        return this.tempF
+                    },
+                    tempColor(tempF) {
+                        if(isNaN(parseInt(tempF))) {
+                            return "error"
+                        }
+                        if(parseInt(tempF) < 1) {
+                            return "frozen"
+                        }
+                        else if(parseInt(tempF) < 33) {
+                            return "blue"
+                        }
+                        else if(parseInt(tempF) < 58) {
+                            return "lavender"
+                        }
+                        else if(parseInt(tempF) < 78) {
+                            return "green"
+                        }
+                        else if(parseInt(tempF) < 95) {
+                            return "peach"
+                        }
+                        else {
+                            return "hot"
+                        }
+                    }
+                },
+            })
+            App.mount('#app')
+        </script>
+    </body>
+</html>

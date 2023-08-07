@@ -1,0 +1,69 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+      Cantarell, 'Fira Sans', 'Droid Sans', sans-serif;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10vh;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 4vw;
+    width: max-content;
+    background: rgb(255, 137, 116);
+    border: 2px solid rgb(0, 0, 24);
+}
+
+label {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 4px;
+    font-size: 16px;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.alert {
+    color: crimson;
+}
+.error {
+    border: 3px dotted crimson;
+    background-color: white;
+}
+.hot {
+    background-color: rgb(255, 137, 116);
+}
+.peach  {
+    background-color: rgb(247, 221, 183);
+}
+.green {
+    background: rgb(221, 240, 204);
+}
+.lavender {
+    background-color: rgb(232, 221, 255);
+}
+.blue {
+    background-color: rgb(208, 228, 245);
+}
+.frozen {
+    border: 3px dotted rgb(94, 165, 247);
+    background-color: white;
+}
